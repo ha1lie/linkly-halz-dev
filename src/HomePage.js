@@ -41,6 +41,8 @@ class HomePage extends Component {
               </Box>
               <Text weight='600' size='120%'>Support?</Text>
               <Text>Linkly supports any version of macOS Big Sur(11.0) or higher, on any device</Text>
+              <Text weight='600' size='120%'>Opensource?</Text>
+              <Text>You bet! The <a color="#5e5ce6" href="https://github.com/ha1lie/Linkly" target="_blank" style={{ textDecoration: 'none'}}>App</a> and the <a color="#5e5ce6" href="https://github.com/ha1lie/linkly-halz-dev" target="_blank" style={{ textDecoration: 'none'}}>Website</a> are both opensource on GitHub! Give them some stars!</Text>
               <Text weight='600' size='120%'>Questions?</Text>
               <Text>Contact Hallie <a color="#5e5ce6" href="/contact" target="_self" style={{ textDecoration: 'none'}}>HERE</a></Text>
   
