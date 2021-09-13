@@ -1,38 +1,55 @@
-import React from 'react';
-import { Box, Text, Anchor, Paragraph, ResponsiveContext } from 'grommet';
+import React, { Component } from 'react';
+import { Box, Text, Anchor, Paragraph, ResponsiveContext, Button } from 'grommet';
+import { isMacOs } from 'react-device-detect';
+import { DownloadOption, PhoneVertical } from 'grommet-icons';
 
-function HomePage() {
-  return (
-    <ResponsiveContext.Consumer>
-      { size => (
-        <Box flex='grow' align='center' justify='center' >
-          <Box>
-            <Text color='appBarBackground' weight='700' size='1000%' margin={{left: '20pt', bottom: 'none' }} >Flip</Text>
-            <Text color='appBarBackground' weight='600' size='200%'>A simple PDF Utility</Text>
-          </Box>
-          <Box flex='grow' direction='row' pad='large' gap='large' style={{ overflow: 'scroll' }} >
-            <Box round='medium' width={ ( size === 'small' || size === 'xsmall' ) ? '80vw' : '500px'} height={ ( size === 'small' || size === 'xsmall' ) ? '107vw' : '667px'} flex='grow' background="url('/simpleStart.png')" />
-            <Box round='medium' width={ ( size === 'small' || size === 'xsmall' ) ? '80vw' : '500px'} height={ ( size === 'small' || size === 'xsmall' ) ? '107vw' : '667px'}  flex='grow' background="url('/rotateImage.png')" />
-            <Box round='medium' width={ ( size === 'small' || size === 'xsmall' ) ? '80vw' : '500px'} height={ ( size === 'small' || size === 'xsmall' ) ? '107vw' : '667px'}  flex='grow' background="url('/scanImage.png')" />
-          </Box>
-          <Box align='center' gap='medium' pad='medium'>
-            <Text>Flip is a PDF utility meant to allow users to quickly create and manage the rotation of their PDF files on their iPad. Developed with a focus on ease of use, Flip allows you to:</Text>
-            <Box pad='medium' align='start'>
-              <Text>- Scan and create PDF documents with the most ease on the App Store</Text>
-              <Text>- Rotate skewed PDFs</Text>
-              <Text>- Export and share PDFs with custom file names, any way that you would like!</Text>
+class HomePage extends Component {
+  render() {
+    return (
+      <ResponsiveContext.Consumer>
+        { size => (
+          <Box flex='grow' align='center' justify='center' pad='medium' >
+            <Text color='appBarBackground' weight='700' size={ (size == 'medium' || size == 'large' || size == 'xlarge' ) ? '850%' : '500%'} margin={{left: '20pt', bottom: 'none' }} >Linkly</Text>
+            <Text color='appBarBackground' textAlign='center' weight='600' size='200%'>Simple and Convenient Menu Bar Link Manager</Text>
+            { isMacOs ? (
+              <Button fill='horizontal' href='https://api.halz.dev/files/Linkly.zip' target='_blank'>
+                <Box background='#5e5ce6' direction='column' align='center' margin='large' pad="medium" round='medium'>
+                  <Box align='center' direction='row' pad='xsmall' gap='small'>
+                    <Text weight='bold' size='150%'>Download Now</Text>
+                    <DownloadOption />
+                  </Box>
+                  <Text size='70%'>Supports MacOS 11.0 or Higher</Text>
+                </Box>
+              </Button>
+            ) : (
+              <Box background='#5e5ce6' direction='column' align='center' margin='large' pad="medium" round='medium'>
+                  <Box align='center' direction='row' pad='xsmall' gap='small'>
+                    <Text weight='bold' size='150%'>I'm sorry, you can't download Linkly</Text>
+                    <PhoneVertical />
+                  </Box>
+                  <Text size='70%'>Visit page on a Mac device to download Linkly</Text>
+                  <Anchor href="https://api.halz.dev/files/Linkly.zip" size='50%' color='white' style={{ textDecoration: 'underline'}}>Seeing this in error? Download anyway</Anchor>
+                </Box>
+            )}
+            <Text color='appBarBackground' textAlign='center' weight='600' size='200%'>About Linkly</Text>
+            <Box align='center' gap='medium'>
+              <Text>Linkly is a menu bar utility to help you organize your links, designed for Mac, and built to make your life simpler, and faster.</Text>
+              <Box pad='medium' align='start'>
+                <Text>- Easily add new links, and access them any time with colorful ease</Text>
+                <Text>- Open links in your favorite browser</Text>
+                <Text>- Automatically open the app on computer launch, low memory, and no power impacts</Text>
+              </Box>
+              <Text weight='600' size='120%'>Support?</Text>
+              <Text>Linkly supports any version of macOS Big Sur(11.0) or higher, on any device</Text>
+              <Text weight='600' size='120%'>Questions?</Text>
+              <Text>Contact Hallie <a color="#5e5ce6" href="/contact" target="_self" style={{ textDecoration: 'none'}}>HERE</a></Text>
+  
             </Box>
-            <Text weight='600' size='120%'>BUILT FOR STUDENTS</Text>
-            <Text>Built with students in mind, Flip allows you to share and create digital versions of all of your worksheets and projects, to store and collaborate any way that you would like!</Text>
-            <Text weight='600' size='120%'>BUILT FOR PROFESSIONALS</Text>
-            <Text>Built for the modern day professional, Flip allows you to utilize your iPad to move your workflow into the digital realm, bringing piles of hoarded paper to a simple and easy to use digital file in seconds!</Text>
-            <Text weight='600' size='120%'>BUILT FOR YOU</Text>
-            <Text>Flip was built for you, with a simple but straightforward design and workflow, allowing you to get more done, faster.</Text>
           </Box>
-        </Box>
-      )}
-    </ResponsiveContext.Consumer>
-  );
+        )}
+      </ResponsiveContext.Consumer>
+    );
+  }
 }
 
 export default HomePage;

@@ -34,13 +34,14 @@ class AppBar extends Component {
           <AppBarContainer background='appBarBackground' >
             <Box direction='row' align='center' gap='8px'>
               <Anchor href='/'>
-                <Heading level='2' margin='none' color='appBarTextColor'>Flip</Heading>
+                <Heading level='2' margin='none' color='appBarTextColor'>Linkly</Heading>
               </Anchor>
             </Box>
             {(size === 'small') ? (
                 <Button icon={ <Menu color='appBarTextColor' /> } onClick={ () => { this.setState({ showMobileContainer: true }) } } />
             ) : (
                 <Box direction='row' pad='horizontal'>
+                <Anchor color='appBarTextColor' label='Download' margin={{left: 'small'}} href='/' />
                 <Anchor color='appBarTextColor' label='Contact' margin={{left: 'small'}} href='/contact' />
                 <Anchor color='appBarTextColor' label='Privacy Policy' margin={{left: 'small'}} href='/privacy' />
               </Box>
@@ -52,12 +53,15 @@ class AppBar extends Component {
                     <Box fill='horizontal' direction='column'>
                       <Box fill='horizontal' elevation='none' justify='between' direction='row' pad={{ left: 'medium', right: 'small', vertical: 'small' }}>
                         <Box direction='row' align='center' gap='8px'>
-                          <Heading level='2' margin='none' color='appBarTextColor'>Flip</Heading>
+                          <Heading level='2' margin='none' color='appBarTextColor'>Linkly</Heading>
                         </Box>
                         <Button plain icon={ <FormClose color='appBarTextColor' size='large' /> } onClick={ () => { this.setState({ showMobileContainer: false }) } } />
                       </Box>
                     </Box>
                     <Box direction='column' align='center'>
+                      <Anchor color='appBarTextColor' href='/' >
+                        <Heading level='1'>Download</Heading>
+                      </Anchor>
                       <Anchor color='appBarTextColor' href='/contact' >
                         <Heading level='1'>Contact</Heading>
                       </Anchor>
