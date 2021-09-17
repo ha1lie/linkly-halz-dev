@@ -12,7 +12,7 @@ class HomePage extends Component {
     }).then(function(res) {
       return res.text()
     }).then(function(text) {
-      maintenence = text == "NO" //FIX ME
+      maintenence = text === "NO" //FIX ME
     })
     this.setState({isDown: maintenence})
   }
@@ -58,12 +58,12 @@ class HomePage extends Component {
       <ResponsiveContext.Consumer>
         { size => (
           <Box flex='grow' align='center' justify='center' pad='medium' >
-            <Text color='appBarBackground' weight='700' size={ (size == 'medium' || size == 'large' || size == 'xlarge' ) ? '850%' : '500%'} margin={{left: '20pt', bottom: 'none' }} >Linkly</Text>
+            <Text color='appBarBackground' weight='700' size={ (size === 'medium' || size === 'large' || size === 'xlarge' ) ? '850%' : '500%'} margin={{left: '20pt', bottom: 'none' }} >Linkly</Text>
             <Text color='appBarBackground' textAlign='center' weight='600' size='200%'>Simple and Convenient Menu Bar Link Manager</Text>
             { }
             {
               this.state.loadingDownload ? (
-                <Box align='center' fill='horizontal' background='#5e5ce6' pad='medium' round='medium'>
+                <Box align='center' fill='horizontal' margin={{ horizontal: 'large', vertical: 'small'}} background='#5e5ce6' pad='medium' round='medium'>
                   <Box>
                     <Box direction='row' justify='between' align='center' margin='small'>
                       <Box direction='row' align='center' gap='medium'>
@@ -84,7 +84,7 @@ class HomePage extends Component {
                 this.state.isDown === null ? (
                   <Spinner color='#5e5ce6' size='medium' />
                 ) : ((this.state.isDown) ? (
-                  <Box fill='horizontal' margin='large' align='center' background='#5e5ce6' round='medium' pad='medium'>
+                  <Box fill='horizontal' margin={{ horizontal: 'large', vertical: 'small'}} align='center' background='#5e5ce6' round='medium' pad='medium'>
                     <Box>
                       <Text weight='700' size='150%'>I'm sorry,</Text>
                       <Text>Our backend server is offline for maintenence right now, please come back to download linkly soon!</Text>
@@ -92,8 +92,8 @@ class HomePage extends Component {
                   </Box>
                 ) : (
                   isMacOs ? (
-                    <Button onClick={ () => { this.downloadLinkly() } } fill='horizontal'>
-                      <Box background='#5e5ce6' direction='column' align='center' margin='large' pad="medium" round='medium'>
+                    <Button margin={{ horizontal: 'large', vertical: 'small'}} onClick={ () => { this.downloadLinkly() } } fill='horizontal'>
+                      <Box background='#5e5ce6' direction='column' align='center' pad="medium" round='medium'>
                         <Box align='center' direction='row' pad='xsmall' gap='small'>
                           <Text weight='bold' size='150%'>Download Now</Text>
                           <DownloadOption />
@@ -102,7 +102,7 @@ class HomePage extends Component {
                       </Box>
                     </Button>
                   ) : (
-                    <Box background='#5e5ce6' direction='column' align='center' margin='large' pad="medium" round='medium'>
+                    <Box background='#5e5ce6' margin={{ horizontal: 'large', vertical: 'small'}} direction='column' align='center' pad="medium" round='medium'>
                       <Box align='center' direction='row' pad='xsmall' gap='small'>
                         <Text weight='bold' size='150%'>I'm sorry, you can't download Linkly</Text>
                         <PhoneVertical />
@@ -114,16 +114,16 @@ class HomePage extends Component {
                 ))
               )
             }
-            { this.state.count != "" ? (
-              <Box pad='small'>
-                <Text>Join {this.state.count} other people using Linkly</Text>
-              </Box>
-            ) : (
-              <Box>
-              </Box>
-            )}
-            <Text color='appBarBackground' textAlign='center' weight='600' size='200%'>About Linkly</Text>
-            <Box align='center' gap='medium'>
+            <Box align='center' gap='small'>
+              { this.state.count !== "" ? (
+                <Box>
+                  <Text>Join {this.state.count} other people using Linkly</Text>
+                </Box>
+              ) : (
+                <Box>
+                </Box>
+              )}
+              <Text color='appBarBackground' textAlign='center' weight='600' size='200%'>About Linkly</Text>
               <Text>Linkly is a menu bar utility to help you organize your links, designed for Mac, and built to make your life simpler, and faster.</Text>
               <Box pad='medium' align='start'>
                 <Text>- Easily add new links, and access them any time with colorful ease</Text>
@@ -133,7 +133,7 @@ class HomePage extends Component {
               <Text weight='600' size='120%'>Support?</Text>
               <Text>Linkly supports any version of macOS Big Sur(11.0) or higher, on any device</Text>
               <Text weight='600' size='120%'>Opensource?</Text>
-              <Text>You bet! The <a color="#5e5ce6" href="https://github.com/ha1lie/Linkly" target="_blank" style={{ textDecoration: 'none'}}>App</a> and the <a color="#5e5ce6" href="https://github.com/ha1lie/linkly-halz-dev" target="_blank" style={{ textDecoration: 'none'}}>Website</a> are both opensource on GitHub! Give them some stars!</Text>
+              <Text>You bet! The <a color="#5e5ce6" href="https://github.com/ha1lie/Linkly" target="_blank" rel="noreferrer" style={{ textDecoration: 'none'}}>App</a> and the <a color="#5e5ce6" href="https://github.com/ha1lie/linkly-halz-dev" target="_blank" rel='noreferrer' style={{ textDecoration: 'none'}}>Website</a> are both opensource on GitHub! Give them some stars!</Text>
               <Text weight='600' size='120%'>Questions?</Text>
               <Text>Contact Hallie <a color="#5e5ce6" href="/contact" target="_self" style={{ textDecoration: 'none'}}>HERE</a></Text>
             </Box>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, Anchor, Heading, Paragraph } from 'grommet';
+import { Box, Text, Anchor, Paragraph } from 'grommet';
 
 function PrivacyPage() {
   return (

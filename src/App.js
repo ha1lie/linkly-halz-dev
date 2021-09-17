@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Anchor, Box, Grommet, Header, Text } from 'grommet';
+import { Anchor, Box, Grommet, } from 'grommet';
 import AppBar from './components/AppBar';
 import UnknownPage from './UnknownPage';
 import PrivacyPage from './PrivacyPage';
