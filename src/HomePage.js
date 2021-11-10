@@ -7,7 +7,7 @@ class HomePage extends Component {
 
   async fetchOnline() {
     let maintenence = true
-    await fetch("https://api.halz.dev/isMaintenence", {
+    await fetch("https://api.halz.dev/linkly/isMaintenence", {
       method: 'GET'
     }).then(function(res) {
       return res.text()
@@ -60,7 +60,6 @@ class HomePage extends Component {
           <Box flex='grow' align='center' justify='center' pad='medium' >
             <Text color='appBarBackground' weight='700' size={ (size === 'medium' || size === 'large' || size === 'xlarge' ) ? '850%' : '500%'} margin={{left: '20pt', bottom: 'none' }} >Linkly</Text>
             <Text color='appBarBackground' textAlign='center' weight='600' size='200%'>Simple and Convenient Menu Bar Link Manager</Text>
-            { }
             {
               this.state.loadingDownload ? (
                 <Box align='center' fill='horizontal' margin={{ horizontal: 'large', vertical: 'small'}} background='#5e5ce6' pad='medium' round='medium'>
@@ -108,7 +107,7 @@ class HomePage extends Component {
                         <PhoneVertical />
                       </Box>
                       <Text size='70%'>Visit page on a Mac device to download Linkly</Text>
-                      <Anchor href="https://api.halz.dev/files/Linkly.zip" size='50%' color='white' style={{ textDecoration: 'underline'}}>Seeing this in error? Download anyway</Anchor>
+                      <Anchor onClick= { () => { this.downloadLinkly() } } size='50%' color='white' style={{ textDecoration: 'underline'}}>Seeing this in error? Download anyway</Anchor>
                     </Box>
                   )
                 ))
