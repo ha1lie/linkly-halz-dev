@@ -7,33 +7,31 @@ class HomePage extends Component {
 
   async fetchOnline() {
     let maintenence = true
-    await fetch("https://api.halz.dev/linkly/isMaintenence", {
+    await fetch("https://api.halz.dev/linkly/isAccessible", {
       method: 'GET'
     }).then(function(res) {
       return res.text()
     }).then(function(text) {
-      maintenence = text === "NO" //FIX ME
+      maintenence = text === "false" //FIX ME
     })
     this.setState({isDown: maintenence})
   }
 
   async fetchCount() {
     let tmpCount = ""
-    await fetch("https://api.halz.dev/linkly/count", {
+    await fetch("https://api.halz.dev/linkly/downloadcount", {
       method: 'GET'
     }).then(function(res) {
       return res.text()
     }).then(function(text) {
       tmpCount = text
     })
-    console.log("THIS IS TMP COUNT:")
-    console.log(tmpCount)
     this.setState({count: tmpCount})
   }
 
   async downloadLinkly() {
     this.setState({loadingDownload: true})
-    await fetch("https://api.halz.dev/linkly/download", {
+    await fetch("https://api.halz.dev/linkly/downloadlink", {
       method: 'GET'
     }).then(function(res) {
       return res.text()
